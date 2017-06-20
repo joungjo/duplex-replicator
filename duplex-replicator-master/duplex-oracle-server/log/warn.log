@@ -1,0 +1,4 @@
+[20:47:37:309] [WARN] - org.apache.activemq.xbean.XBeanBrokerService.setDestroyApplicationContextOnStop(XBeanBrokerService.java:114) - destroyApplicationContextOnStop parameter is deprecated, please use shutdown hooks instead
+[20:48:16:316] [WARN] - org.apache.activemq.xbean.XBeanBrokerService.setDestroyApplicationContextOnStop(XBeanBrokerService.java:114) - destroyApplicationContextOnStop parameter is deprecated, please use shutdown hooks instead
+[20:49:11:776] [WARN] - org.apache.activemq.xbean.XBeanBrokerService.setDestroyApplicationContextOnStop(XBeanBrokerService.java:114) - destroyApplicationContextOnStop parameter is deprecated, please use shutdown hooks instead
+[20:49:50:010] [WARN] - org.apache.activemq.xbean.XBeanBrokerService.setDestroyApplicationContextOnStop(XBeanBrokerService.java:114) - destroyApplicationContextOnStop parameter is deprecated, please use shutdown hooks instead

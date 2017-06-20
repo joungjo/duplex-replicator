@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs>
+	<oracle>
+		<driver>oracle.jdbc.driver.OracleDriver</driver>
+		<url>jdbc:oracle:thin:@192.168.4.2:1521:pdg</url>
+		<cdcuser>CDCUSER</cdcuser>
+		<password>123456</password>
+		<tablespace>ts_cdc</tablespace>
+		<datafile>/home/oracle/cdcuser.dbf</datafile>
+		<file-size>2048m</file-size>
+		<tempspace>cdcusertemp</tempspace>
+		<tempfile>/home/oracle/cdcusertemp.dbf</tempfile>
+		<temp-size>2048m</temp-size>
+		<dba-account>sys</dba-account>
+		<dba-password>123456</dba-password>
+
+		<node ip="192.168.4.3" port="61616">
+			<schema remote="GFGXDB_WM">
+				<table remote="GFGX_Y_CPSC_CHCPSCJH"	localSchema="GFGXDB_WM_1"></table>
+				<table remote="GFGX_Y_CPSC_LSH"		localSchema="GFGXDB_WM_1"></table>
+				<table remote="GFGX_Y_DDGC_GCRW"		localSchema="GFGXDB_WM_1"></table>
+				<table remote="GFGX_Y_DDGC_GZJSJH"	localSchema="GFGXDB_WM_1"></table>
+				<table remote="GFGX_Y_DDGL_CHJGCLJL"	localSchema="GFGXDB_WM_1"></table>
+				<table remote="GFGX_Y_DDGL_CPCLJL"	localSchema="GFGXDB_WM_1"></table>
+				<table remote="GFGX_Y_DDGL_CPRGSH"	localSchema="GFGXDB_WM_1"></table>
+				<table remote="GFGX_Y_DDGL_DD"		localSchema="GFGXDB_WM_1"></table>
+			</schema>
+		</node>
+	</oracle>
+</configs>

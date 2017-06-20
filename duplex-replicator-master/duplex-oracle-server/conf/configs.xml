@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs>
+	<oracle>
+		<driver>oracle.jdbc.driver.OracleDriver</driver>
+		<url>jdbc:oracle:thin:@192.168.56.90:1521:ORCL</url>
+		<cdcuser>CDCUSER</cdcuser>
+		<password>123456</password>
+		<tablespace>ts_cdc</tablespace>
+		<datafile>/home/oracle/cdcuser.dbf</datafile>
+		<file-size>2048m</file-size>
+		<tempspace>cdcusertemp</tempspace>
+		<tempfile>/home/oracle/cdcusertemp.dbf</tempfile>
+		<temp-size>2048m</temp-size>
+		<change-set>set_cdc</change-set>
+		<dba-account>sys</dba-account>
+		<dba-password>123456</dba-password>
+		<schema name="GFGXDB" password="123456">
+			<table name="TEST"></table>
+		</schema>
+	</oracle>
+</configs>

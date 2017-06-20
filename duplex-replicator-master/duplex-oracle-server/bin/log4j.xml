@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//log4j/log4j Configuration//EN" "log4j.dtd">
+<log4j:configuration>
+	<!-- output to console -->
+	<appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<param name="Threshold" value="INFO" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%5p | %m%n" />
+		</layout>
+	</appender>
+
+	<!-- output to file（info） -->
+	<appender name="fileAppenderInfo" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${user.dir}/log/server.out" />
+		<param name="maxFileSize" value="1024KB" />
+		<param name="maxBackupIndex" value="5" />
+		<param name="append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d | %-5p | %m | %c | %t%n" />
+		</layout>
+	</appender>
+
+	<!-- output to file（warn） -->
+	<!-- <appender name="fileAppenderWarn" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${user.dir}/log/warn.log" />
+		<param name="DatePattern" value=".yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n" />
+		</layout>
+
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="WARN" />
+			<param name="LevelMax" value="WARN" />
+		</filter>
+	</appender> -->
+
+	<!--输出到文件（error） -->
+	<!-- <appender name="fileAppenderError" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${user.dir}/log/error.log" />
+		<param name="DatePattern" value=".yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="ERROR" />
+			<param name="LevelMax" value="ERROR" />
+		</filter>
+	</appender> -->
+
+	<appender name="db" class="com.geovis.log.CustomJDBCAppender">
+		<param name="driver" value="oracle.jdbc.driver.OracleDriver" />
+		<param name="URL" value="jdbc:oracle:thin:@172.24.10.6:1521:RSSS" />
+		<param name="user" value="GFGXDB_WM" />
+		<param name="password" value="GFGXDB_WM" />
+		<param name="sql" value="INSERT INTO LOG4J (D, Logger, Priority, Thread, Message) VALUES ('%d', '%c', '%p', '%t', '%m')" />
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="ERROR" />
+			<param name="LevelMax" value="ERROR" />
+		</filter>
+	</appender>
+
+	<!-- filter org.springframework.* Debug info -->
+	<!-- <logger name="org.apache.camel">
+		<level value="INFO"></level>
+	</logger>
+	<logger name="org.apache.activemq.web.handler">
+		<level value="WARN"></level>
+	</logger>
+	<logger name="org.apache.activemq.spring">
+		<level value="WARN"></level>
+	</logger>
+	<logger name="org.springframework">
+		<level value="WARN"></level>
+	</logger>
+	<logger name="org.apache.xbean">
+		<level value="WARN"></level>
+	</logger>
+	<logger name="org.apache.activemq.spring">
+		<level value="WARN"></level>
+	</logger> -->
+
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="fileAppenderInfo" />
+		<appender-ref ref="db" />
+	</root>
+</log4j:configuration>
